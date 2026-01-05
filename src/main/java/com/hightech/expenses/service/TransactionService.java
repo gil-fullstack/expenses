@@ -1,6 +1,9 @@
 package com.hightech.expenses.service;
 
-import com.hightech.expenses.domain.*;
+import com.hightech.expenses.domain.Account;
+import com.hightech.expenses.domain.Category;
+import com.hightech.expenses.domain.Transaction;
+import com.hightech.expenses.domain.User;
 import com.hightech.expenses.repository.AccountRepository;
 import com.hightech.expenses.repository.CategoryRepository;
 import com.hightech.expenses.repository.TransactionRepository;

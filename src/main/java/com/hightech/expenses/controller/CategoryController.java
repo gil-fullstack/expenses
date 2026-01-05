@@ -2,11 +2,13 @@ package com.hightech.expenses.controller;
 
 import com.hightech.expenses.domain.Category;
 import com.hightech.expenses.service.CategoryService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/categories")
 public class CategoryController {
@@ -18,7 +20,9 @@ public class CategoryController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Category create(@RequestBody Category c) { return categoryService.create(c); }
+    public Category create(@RequestBody @Valid Category c) {
+        return categoryService.create(c);
+    }
 
     @GetMapping
     public List<Category> list() { return categoryService.list(); }
@@ -27,7 +31,9 @@ public class CategoryController {
     public Category get(@PathVariable Long id) { return categoryService.get(id); }
 
     @PutMapping("/{id}")
-    public Category update(@PathVariable Long id, @RequestBody Category c) { return categoryService.update(id, c); }
+    public Category update(@PathVariable Long id, @RequestBody @Valid Category c) {
+        return categoryService.update(id, c);
+    }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
